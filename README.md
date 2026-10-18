@@ -153,6 +153,12 @@ cargo fmt --check
 Rust **1.80+** (MSRV), Linux targeted per the [SPECIFICATION.md](SPECIFICATION.md);
 the daemon, IPC, and schema sections there are authoritative.
 
+> **MSRV note:** `Cargo.lock` pins dependency releases that build on 1.80.
+> If you run `cargo update`, check that the resolved versions still declare
+> `rust-version ≤ 1.80` (e.g. `clap 4.5.x`, `assert_cmd 2.1.x`) — current
+> releases of some crates require newer toolchains. CI enforces this via the
+> MSRV job.
+
 ## License
 
 Dual-licensed under either of:
