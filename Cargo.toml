@@ -1,0 +1,42 @@
+[package]
+name = "ghosttree"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "GhostTree - autonomous Git worktree swarm orchestrator"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/devpryan7792/ghosttree"
+homepage = "https://github.com/devpryan7792/ghosttree"
+readme = "README.md"
+keywords = ["git", "worktree", "ai", "agents", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[lib]
+name = "ghosttree"
+path = "src/lib.rs"
+
+[[bin]]
+name = "gt"
+path = "src/bin/gt.rs"
+
+[[bin]]
+name = "ghosttree"
+path = "src/bin/ghosttree.rs"
+
+[dependencies]
+anyhow = "1.0.86"
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+libc = "0.2.155"
+nix = { version = "0.31", features = ["term"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.120"
+thiserror = "2.0"
+ulid = "1.1"
+
+[dev-dependencies]
+assert_cmd = "2.0.14"
+predicates = "3.1"
+tempfile = "3.10"
+toml = "0.8"
