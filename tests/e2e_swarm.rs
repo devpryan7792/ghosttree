@@ -97,7 +97,7 @@ exit 1
 /// system config disabled) and the merge-commit identity comes from env
 /// vars, mirroring what the daemon and agents receive.
 fn gt(root: &Path) -> Command {
-    let mut cmd = Command::cargo_bin("gt").expect("gt binary");
+    let mut cmd = Command::new(env!("CARGO_BIN_EXE_gt"));
     cmd.current_dir(root)
         .env("GIT_CONFIG_GLOBAL", "/dev/null")
         .env("GIT_CONFIG_SYSTEM", "/dev/null")

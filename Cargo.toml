@@ -11,6 +11,12 @@ readme = "README.md"
 keywords = ["git", "worktree", "ai", "agents", "cli"]
 categories = ["command-line-utilities", "development-tools"]
 
+# Resolver v3 enables rust-version-aware dependency resolution so the lockfile
+# stays buildable on the declared MSRV (1.80) — newer-than-MSRV dependency
+# releases fall back to their compatible predecessors.
+[workspace]
+resolver = "3"
+
 [lib]
 name = "ghosttree"
 path = "src/lib.rs"

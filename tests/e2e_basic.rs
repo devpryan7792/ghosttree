@@ -12,7 +12,7 @@ use serde_json::Value;
 use std::fs;
 
 fn gt() -> AssertCommand {
-    AssertCommand::cargo_bin("gt").expect("gt binary built")
+    AssertCommand::new(env!("CARGO_BIN_EXE_gt"))
 }
 
 #[test]
@@ -216,8 +216,7 @@ fn list_fails_when_not_initialized() {
 #[test]
 fn ghosttree_alias_binary_works() {
     let repo = TestRepo::new();
-    AssertCommand::cargo_bin("ghosttree")
-        .unwrap()
+    AssertCommand::new(env!("CARGO_BIN_EXE_ghosttree"))
         .arg("--version")
         .current_dir(&repo.root)
         .assert()
